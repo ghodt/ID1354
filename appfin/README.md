@@ -1,2 +1,0 @@
-# appfin
-Applikationer för internet
