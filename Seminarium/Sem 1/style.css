@@ -84,6 +84,16 @@ ul{
 	margin: 1em;
 }
 
+.non-nav-link {
+	color: #654398;
+	text-decoration: underline;
+}
+
+.non-nav-link:hover {
+	color: #302047;
+	background-color: rgba(0,0,0,0);
+}
+
 
 /*
 	HEADER
@@ -148,16 +158,6 @@ nav ul li a {
 	text-align: left;
 }
 
-.non-nav-link {
-	color: #654398;
-	text-decoration: underline;
-}
-
-.non-nav-link:hover {
-	color: #302047;
-	background-color: rgba(0,0,0,0);
-}
-
 /*
 	CONTENT/RECIPES
 */
@@ -179,6 +179,7 @@ nav ul li a {
 	margin: 0 2em;
 }
 
+/*Image on the recipe page*/
 figure {
 	padding: 0em 3em;
 }
@@ -224,6 +225,7 @@ figcaption {
 	margin: .1em;
 }
 
+/*Comment section*/
 .comment {
 	background-color: #fff;
 	padding: 1em;
@@ -283,7 +285,7 @@ figcaption {
 }
 
 .days {
-    padding: 10px 0;
+    padding: 0px 0;
     background: #eee;
     margin: 0;
 }
@@ -301,6 +303,8 @@ figcaption {
 	list-style-type: none;
     display: inline-block;
     width: 100%;
+	margin: 0;
+	padding-top: 10px;
 }
 
 .week li {
