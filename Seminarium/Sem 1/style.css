@@ -105,8 +105,7 @@ header{
 	height: 60px;
 	position: absolute;
 	top: 0;
-	/* Gradient */
-	background: #654398; /* For browsers that do not support gradients */
+	background: #654398;
 }
 
 
@@ -130,8 +129,6 @@ nav ul li a {
 }
 
 #active {
-	/*background-color: #302047;*/
-	/*text-shadow: 0 0 3px #fff;*/
 	font-weight: bold;
 }
 
