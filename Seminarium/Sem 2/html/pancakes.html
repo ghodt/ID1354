@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Tasty Recipes</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+	<header>
+		<p><a href="../index.html" id="logo">Tasty Recipes</a></p>
+		<nav id="menu">
+			<ul>
+				<li><a href="login.html" class="nav-link">Log in</a></li>
+				<li><a href="calendar.html" class="nav-link">Calendar</a></li>
+				<li id="active"><a href="pancakes.html" class="nav-link">Pancakes</a></li>
+				<li><a href="meatballs.html" class="nav-link">Meatballs</a></li>
+				<li><a href="../index.html" class="nav-link">Home</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="content">
+		<h2>Pancakes</h2>
+		<figure>
+			<img src="../images/pancakes.jpg" alt="image of pancakes" class="recipe-img">
+			<figcaption>Recipe source: <a href="http://allrecipes.com/recipe/220142/fluffy-swedish-pancakes/" class="non-nav-link">allrecipes.com</a>. Image source: <a href="https://www.koket.se/pannkaka1" class="non-nav-link">koket.se</a>.</figcaption>
+		</figure>
+		<div id="meta">
+			<ul id="recipe-info">
+				<li id="servings">4 servings</li>
+				<li id="time">15 min</li>
+			</ul>
+		</div>
+		<h3>Ingredients</h3>
+		<ul id="ingredients">
+			<li>4 eggs</li>
+			<li>1 cup milk </li>
+			<li>1/2 cup warm water</li>
+			<li>3 tablespoons white sugar</li>
+			<li>1 cup all-purpose flour</li>
+			<li>1/2 teaspoon salt</li>
+			<li>1/2 cup butter, melted</li>
+			<li>1 tablespoon butter, melted, or as needed</li>
+		</ul>
+		<div id="instructions">
+			<h3>Instructions</h3>
+			<ol id="instruction-list">
+				<li>Blend eggs, milk, warm water, white sugar, flour, and salt together in a large mixing bowl with an electric mixer until well combined into a smooth batter.</li>
+				<li>Stream the melted butter into the batter while continuing to beat.</li>
+				<li>Heat a skillet or crepe pan over medium heat. Coat the cooking surface with a thin layer of butter.</li>
+				<li>Pour a thin layer of batter onto the prepared cooking surface; swirl the pan to assure even coverage.</li>
+				<li>Cook the crepe until browned on the bottom, 1 to 2 minutes; flip the crepe and continue cooking until the other side is browned. Serve immediately.</li>
+			</ol>
+		</div>
+
+		<h3>Comments</h3>
+		<div id="comment-section">
+			<form id="write-comment" action="" method="post">
+				<div class="input-description">Comment on this recipe:</div><br/>
+				<textarea name="comment" cols="60"></textarea><br/>
+				<input type="submit" value="Send comment">
+			</form>
+			<div class="comment">
+				<div class="username">User 1</div>
+				<div class="comment-time"> <time datetime="2017-11-05 16:43">2017-11-05 16:43</time></div>
+				<div class="user-comment">Culpa short loin in, ground round kevin aliqua hamburger cillum.</div>
+			</div>
+			<div class="comment">
+				<div class="username">User 2</div>
+				<div class="comment-time"> <time datetime="2017-11-05 16:50">2017-11-05 16:50</time></div>
+				<div class="user-comment">Culpa short loin in, ground round kevin aliqua hamburger cillum.
+					Culpa short loin in, ground round kevin aliqua hamburger cillum.
+					Culpa short loin in, ground round kevin aliqua hamburger cillum.
+					Culpa short loin in, ground round kevin aliqua hamburger cillum.
+					Culpa short loin in, ground round kevin aliqua hamburger cillum.
+					Culpa short loin in, ground round kevin aliqua hamburger cillum.
+					Culpa short loin in, ground round kevin aliqua hamburger cillum.</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+	</footer>
+</body>
+</html>
