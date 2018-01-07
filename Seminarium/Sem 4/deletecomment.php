@@ -12,6 +12,12 @@ $recipe = $_POST["recipe"];
 
 $res = $conn->query('DELETE FROM ' . $recipe . 'comments WHERE username="' . $username . '" AND timestamp="' . $timestamp . '"');
 
-include $recipe . '.php';
+if($res == TRUE){
+	echo "Comment deleted.";
+} else{
+	echo "Could not delete comment.";
+}
+
+//include $recipe . '.php';
 
 ?>

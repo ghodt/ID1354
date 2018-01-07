@@ -22,14 +22,7 @@ if(!empty($_POST["username"])){
 		<p><a href="index.php" id="logo">Tasty Recipes</a></p>
 		<nav id="menu">
 			<ul>
-				<li>
-					<?php if(!isset($_SESSION["username"])){
-						echo ('<a href="login.php" class="nav-link">Log in</a>');
-					} else{
-						echo ('<a href="logout.php" class="nav-link">Log out</a>');
-					}
-					?>
-				</li>
+				<li id="active"><a href="login.php" class="nav-link">Log in</a></li>
 				<li><a href="calendar.php" class="nav-link">Calendar</a></li>
 				<li><a href="pancakes.php" class="nav-link">Pancakes</a></li>
 				<li><a href="meatballs.php" class="nav-link">Meatballs</a></li>
@@ -38,15 +31,16 @@ if(!empty($_POST["username"])){
 		</nav>
 	</header>
 	<section class="content">
-		<?php
-			echo "<p>" . $_POST["username"] . "</p>";
-			echo "<p>" . $_POST["password"]. "</p>";
-			echo "session: " . $_SESSION["username"];
-
-			//file_put_contents('users.txt', $data, FILE_APPEND);
-			$gris = "gris";
-			echo '<p>You are now logged in.</p>' . $gris;
-		?>
+		<h2>Log in</h2>
+		<form id="loginform" action="handlelogin.php" method="post">
+			<div id="inputs">
+				<div class="input-description">Username:</div><br/>
+				<input type="text" name="username"><br/>
+				<div class="input-description">Password:</div><br/>
+				<input type="password" name="password"><br/>
+				<input type="submit" value="Submit">
+			</div>
+		</form>
 	</section>
 
 	<footer>

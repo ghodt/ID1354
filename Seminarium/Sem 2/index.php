@@ -55,7 +55,5 @@ if(!empty($_POST["username"])){
 		<!-- ska ha l�nk till kalendern -->
 		<p>This is a link to the <a href="calendar.php" class="non-nav-link">calendar page.</a></p>
 	</section>
-	<footer>
-	</footer>
 </body>
 </html>

@@ -1,22 +1,39 @@
+<?php
+// Start the session
+session_start();
+if(!empty($_POST["username"])){
+	$_SESSION["username"] = $_POST["username"];
+	$username = $_POST["username"];
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>
 <head>
 	<title>Tasty Recipes</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="../style.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 	<header>
-		<p><a href="../index.html" id="logo">Tasty Recipes</a></p>
+		<p><a href="index.html" id="logo">Tasty Recipes</a></p>
 		<nav id="menu">
 			<ul>
-				<li><a href="login.html" class="nav-link">Log in</a></li>
-				<li id="active"><a href="calendar.html" class="nav-link">Calendar</a></li>
-				<li><a href="pancakes.html" class="nav-link">Pancakes</a></li>
-				<li><a href="meatballs.html" class="nav-link">Meatballs</a></li>
-				<li><a href="../index.html" class="nav-link">Home</a></li>
+				<li>
+					<?php if(!isset($_SESSION["username"])){
+						echo ('<a href="login.php" class="nav-link">Log in</a>');
+					} else{
+						echo ('<a href="logout.php" class="nav-link">Log out</a>');
+					}
+					?>
+				</li>
+				<li id="active"><a href="calendar.php" class="nav-link">Calendar</a></li>
+				<li><a href="pancakes.php" class="nav-link">Pancakes</a></li>
+				<li><a href="meatballs.php" class="nav-link">Meatballs</a></li>
+				<li><a href="index.php" class="nav-link">Home</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -49,7 +66,7 @@
 					<li>8</li>
 					<li>9</li>
 					<li>10</li>
-					<li>11<br/><a href="pancakes.html"><img src="../images/pancakes.jpg" alt="image of pancakes" class="calendar-img"></a></li>
+					<li>11<br/><a href="pancakes.php"><img src="images/pancakes.jpg" alt="image of pancakes" class="calendar-img"></a></li>
 					<li>12</li>
 					<li>13</li>
 					<li>14</li>
@@ -69,7 +86,7 @@
 					<li>24</li>
 					<li>25</li>
 					<li>26</li>
-					<li>27<br/><a href="meatballs.html"><img src="../images/meatballs_cropped.jpg" alt="image of meatballs" class="calendar-img"></a></li>
+					<li>27<br/><a href="meatballs.php"><img src="images/meatballs_cropped.jpg" alt="image of meatballs" class="calendar-img"></a></li>
 					<li>28</li>
 				</ul>
 				<ul class="week">
@@ -80,7 +97,5 @@
 			</div>
 		</div>
 	</section>
-	<footer>
-	</footer>
 </body>
 </html>

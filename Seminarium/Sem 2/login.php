@@ -33,12 +33,13 @@ if(!empty($_POST["username"])){
 	<section class="content">
 		<h2>Log in</h2>
 		<form id="loginform" action="handlelogin.php" method="post">
-			<div id="inputs">
+			<div id="inputs">			
 				<div class="input-description">Username:</div><br/>
 				<input type="text" name="username"><br/>
 				<div class="input-description">Password:</div><br/>
 				<input type="password" name="password"><br/>
 				<input type="submit" value="Submit">
+				<div id="wrong-login">New user? <a class="non-nav-link" href="createaccount.html">Create an account.</a></div>
 			</div>
 		</form>
 	</section>

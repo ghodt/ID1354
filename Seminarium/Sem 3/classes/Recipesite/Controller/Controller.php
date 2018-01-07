@@ -1,7 +1,6 @@
 <?php
 
-// fucking shit mannen
-require_once "/wamp64\www\sem3\classes\Recipesite\Integration\DatabaseConnection.php";
+require_once "/../Integration/DatabaseConnection.php";
 
 
 class Controller{
@@ -41,7 +40,6 @@ class Controller{
 		return $this->conn->deleteComment($recipe);
 	}
 	
-	// anropas alltid innan filen dör?
 	public function __destruct() {
         $_SESSION[self::CONTROLLER_NAME] = serialize($this);
     }

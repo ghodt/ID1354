@@ -97,7 +97,5 @@ if(!empty($_POST["username"])){
 			</div>
 		</div>
 	</section>
-	<footer>
-	</footer>
 </body>
 </html>

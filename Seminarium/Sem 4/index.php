@@ -1,6 +1,10 @@
 <?php
-
-require_once 'startup.php';
+// Start the session
+session_start();
+if(!empty($_POST["username"])){
+	$_SESSION["username"] = $_POST["username"];
+	$username = $_POST["username"];
+}
 
 ?>
 
@@ -10,7 +14,7 @@ require_once 'startup.php';
 <head>
 	<title>Tasty Recipes</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="resources\css\style.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -20,15 +24,17 @@ require_once 'startup.php';
 			<ul>
 				<li>
 					<?php if(!isset($_SESSION["username"])){
-						echo ('<a href="resources/views/login.php" class="nav-link">Log in</a>');
+						echo ('<a href="login.php" class="nav-link">Log in</a>');
 					} else{
 						echo ('<a href="logout.php" class="nav-link">Log out</a>');
 					}
+					
+					//print_r($_POST);
 					?>
 				</li>
-				<li><a href="resources/views/calendar.php" class="nav-link">Calendar</a></li>
-				<li><a href="resources/views/pancakes.php" class="nav-link">Pancakes</a></li>
-				<li><a href="resources/views/meatballs.php" class="nav-link">Meatballs</a></li>
+				<li><a href="calendar.php" class="nav-link">Calendar</a></li>
+				<li><a href="pancakes.php" class="nav-link">Pancakes</a></li>
+				<li><a href="meatballs.php" class="nav-link">Meatballs</a></li>
 				<li id="active"><a href="index.php" class="nav-link">Home</a></li>
 			</ul>
 		</nav>
@@ -48,10 +54,8 @@ require_once 'startup.php';
 		sausage salami jowl. Sirloin frankfurter hamburger filet mignon venison labore.</p>
 
 		<h3 class="index-heading" >Calendar</h3>
-
-		<p>This is a link to the <a href="/resources/views/calendar.php" class="non-nav-link">calendar page.</a></p>
+		<!-- ska ha l�nk till kalendern -->
+		<p>This is a link to the <a href="calendar.php" class="non-nav-link">calendar page.</a></p>
 	</section>
-	<footer>
-	</footer>
 </body>
 </html>

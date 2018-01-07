@@ -4,9 +4,7 @@ session_start();
 if(!empty($_POST["username"])){
 	$_SESSION["username"] = $_POST["username"];
 	$username = $_POST["username"];
-} else {
-	$_SESSION["username"] = NULL;
-}
+} 
 require_once 'serversetup.php';
 
 ?>
@@ -30,6 +28,7 @@ require_once 'serversetup.php';
 					} else{
 						echo ('<a href="logout.php" class="nav-link">Log out</a>');
 					}
+					//print_r($_POST);
 					?>
 				</li>
 				<li><a href="calendar.php" class="nav-link">Calendar</a></li>
@@ -108,13 +107,15 @@ require_once 'serversetup.php';
 								<div class="username">' . $row["username"] . '</div>
 								<div class="comment-time"> ' . $row["timestamp"] . '</div>
 								<div class="user-comment">' . $row["comment"] . '</div>';
-						if($row["username"] === $_SESSION["username"]){
-							echo '<form  action="deletecomment.php" method="post">
-									<input type="submit" value="Delete">
-									<input type="hidden" name="deletetimestamp" value="' . $row["timestamp"] . '">
-									<input type="hidden" name="deleteusername" value="' . $row["username"] . '">
-									<input type="hidden" name="recipe" value="meatballs">
-								</form>';
+						if(isset($_SESSION["username"])){
+							if($row["username"] === $_SESSION["username"]){
+								echo '<form  action="deletecomment.php" method="post">
+										<input type="submit" value="Delete">
+										<input type="hidden" name="deletetimestamp" value="' . $row["timestamp"] . '">
+										<input type="hidden" name="deleteusername" value="' . $row["username"] . '">
+										<input type="hidden" name="recipe" value="meatballs">
+									</form>';
+							}
 						}
 						echo '</div>';
 					}

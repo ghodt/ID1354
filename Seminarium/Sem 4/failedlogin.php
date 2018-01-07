@@ -21,9 +21,9 @@ if(!empty($_POST["username"])){
 		<nav id="menu">
 			<ul>
 				<li id="active"><a href="html/login.php" class="nav-link">Log in</a></li>
-				<li><a href="calendar.php" class="nav-link">Calendar</a></li>
-				<li><a href="pancakes.php" class="nav-link">Pancakes</a></li>
-				<li><a href="meatballs.php" class="nav-link">Meatballs</a></li>
+				<li><a href="html/calendar.php" class="nav-link">Calendar</a></li>
+				<li><a href="html/pancakes.php" class="nav-link">Pancakes</a></li>
+				<li><a href="html/meatballs.php" class="nav-link">Meatballs</a></li>
 				<li><a href="index.php" class="nav-link">Home</a></li>
 			</ul>
 		</nav>

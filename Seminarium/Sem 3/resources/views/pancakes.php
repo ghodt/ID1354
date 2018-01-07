@@ -1,11 +1,6 @@
 <?php
-// Start the session
-//require_once '../../classes/Recipesite/Util/Init.php';
-//require '\wamp64\www\sem3\startup.php';
-//require_once '../../startup.php';
-require_once '/wamp64/www/sem3/classes/Recipesite/Controller/Controller.php';
-session_start();
-
+require_once '../../startup.php';
+require_once '../../classes/Recipesite/Controller/Controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,16 +32,6 @@ session_start();
 			</ul>
 		</nav>
 	</header>
-	<?php
-		if(isset($_SESSION["commentdeleted"])){
-			if($_SESSION["commentdeleted"]){
-				$_SESSION["commentdeleted"] = FALSE;
-				echo '<div class="comment-status">Comment deleted</div>';
-			} else {
-				echo '<div class="comment-status">Comment could not be deleted</div>';
-			}
-		}
-	?>
 	
 	<section class="content">
 		<h2>Pancakes</h2>

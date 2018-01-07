@@ -4,8 +4,6 @@ session_start();
 if(!empty($_POST["username"])){
 	$_SESSION["username"] = $_POST["username"];
 	$username = $_POST["username"];
-} else {
-	$_SESSION["username"] = NULL;
 }
 
 require_once 'serversetup.php';
@@ -88,7 +86,7 @@ require_once 'serversetup.php';
 					</form>';
 				}
 				
-				//läs in alla kommentarer från filen, om någon har sammausername som den som är inloggad nu -> visa deleteknapp
+				//läs in alla kommentarer från filen, om någon har samma username som den som är inloggad nu -> visa deleteknapp
 				
 				$conn = new mysqli($servername, $serverusername, $serverpassword, "users");
 				
@@ -101,13 +99,15 @@ require_once 'serversetup.php';
 								<div class="username">' . $row["username"] . '</div>
 								<div class="comment-time"> ' . $row["timestamp"] . '</div>
 								<div class="user-comment">' . $row["comment"] . '</div>';
-						if($row["username"] === $_SESSION["username"]){
-							echo '<form  action="deletecomment.php" method="post">
-									<input type="submit" value="Delete">
-									<input type="hidden" name="deletetimestamp" value="' . $row["timestamp"] . '">
-									<input type="hidden" name="deleteusername" value="' . $row["username"] . '">
-									<input type="hidden" name="recipe" value="pancakes">
-								</form>';
+						if(isset($_SESSION["username"])){
+							if($row["username"] === $_SESSION["username"]){
+								echo '<form  action="deletecomment.php" method="post">
+										<input type="submit" value="Delete">
+										<input type="hidden" name="deletetimestamp" value="' . $row["timestamp"] . '">
+										<input type="hidden" name="deleteusername" value="' . $row["username"] . '">
+										<input type="hidden" name="recipe" value="pancakes">
+									</form>';
+							}
 						}
 						echo '</div>';
 					}

@@ -15,7 +15,6 @@ if (!empty($_POST["username"])){
 	$result = $conn->query($sql);
 
 	if($result->num_rows == 0){
-		unset($_POST["username"]);
 		include'failedlogin.php';
 	} else{
 		$_SESSION["username"] = $username;
@@ -25,6 +24,19 @@ if (!empty($_POST["username"])){
 	include 'login.php';
 }
 
+// Vid tilläggning av nya användare sen 
+/*$sql = "INSERT INTO users (username, password) VALUES ('good', 'good')";
+
+// prepare and bind
+$stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+$stmt->bind_param("ss", $username, $password);
+
+// set parameters and execute
+$username = $_POST["username"];
+$password = $_POST["password"];
+$stmt->execute();
+
+*/
 
 
 

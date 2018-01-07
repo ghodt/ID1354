@@ -1,11 +1,3 @@
-<?php
-if(!empty($_POST["username"])){
-	$_SESSION["username"] = $_POST["username"];
-	$username = $_POST["username"];
-}
-
-?>
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -20,7 +12,7 @@ if(!empty($_POST["username"])){
 		<p><a href="index.php" id="logo">Tasty Recipes</a></p>
 		<nav id="menu">
 			<ul>
-				<li id="active"><a href="html/login.php" class="nav-link">Log in</a></li>
+				<li id="active"><a href="login.php" class="nav-link">Log in</a></li>
 				<li><a href="calendar.php" class="nav-link">Calendar</a></li>
 				<li><a href="pancakes.php" class="nav-link">Pancakes</a></li>
 				<li><a href="meatballs.php" class="nav-link">Meatballs</a></li>
@@ -29,17 +21,19 @@ if(!empty($_POST["username"])){
 		</nav>
 	</header>
 	<section class="content">
-		<h2>Log in</h2>
-		<form id="loginform" action="handlelogin.php" method="post">
-			<div id="inputs">
-				<div id="wrong-login">Wrong username or password.</div>
+		<h2>Create a new account.</h2>
+		<form id="loginform" action="adduser.php" method="post">
+			<div id="inputs">			
 				<div class="input-description">Username:</div><br/>
-				<input type="text" name="username"><br/>
+				<input type="text" name="addusername"><br/>
 				<div class="input-description">Password:</div><br/>
-				<input type="password" name="password"><br/>
+				<input type="password" name="addpassword"><br/>
 				<input type="submit" value="Submit">
 			</div>
 		</form>
 	</section>
+
+	<footer>
+	</footer>
 </body>
 </html>

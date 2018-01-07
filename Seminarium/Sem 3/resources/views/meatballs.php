@@ -1,11 +1,6 @@
 <?php
-// Start the session
-//require '../../startup.php';
-//require '../../classes/Recipesite/Controller/Controller.php';
-require_once '/wamp64/www/sem3/classes/Recipesite/Controller/Controller.php';
-session_start();
-
-
+require '../../startup.php';
+require_once '../../classes/Recipesite/Controller/Controller.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +20,7 @@ session_start();
 					<?php if(!isset($_SESSION["username"])){
 						echo ('<a href="login.php" class="nav-link">Log in</a>');
 					} else{
-						echo ('<a href="logout.php" class="nav-link">Log out</a>');
+						echo ('<a href="../../logout.php" class="nav-link">Log out</a>');
 					}
 					?>
 				</li>
@@ -105,7 +100,7 @@ session_start();
 								<div class="user-comment">' . $row["comment"] . '</div>';
 						if(isset($_SESSION["username"])){
 							if($row["username"] === $_SESSION["username"]){
-								echo '<form  action="../../deletecomment.php" method="post">
+								echo '<form  action="deletecomment.php" method="post">
 										<input type="submit" value="Delete">
 										<input type="hidden" name="deletetimestamp" value="' . $row["timestamp"] . '">
 										<input type="hidden" name="deleteusername" value="' . $row["username"] . '">
@@ -119,25 +114,6 @@ session_start();
 
 			?>
 
-			<!--<div class="comment">
-				<div class="username">User 1</div>
-				<div class="comment-time"> <time datetime="2017-11-05 16:43">2017-11-05 16:43</time></div>
-				<div class="user-comment">Culpa short loin in, ground round kevin aliqua hamburger cillum.</div>
-			</div>
-			<div class="comment">
-				<div class="username">User 2</div>
-				<div class="comment-time"> <time datetime="2017-11-05 16:50">2017-11-05 16:50</time></div>
-				<div class="user-comment">Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-				</div>
-				<input type="submit" value="Delete" action="deletecomment.php" method="post">
-				
-			</div> -->
 		</div>
 	</section>
 	<footer>

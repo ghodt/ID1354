@@ -1,29 +1,54 @@
+<?php
+// Start the session
+session_start();
+if(!empty($_POST["username"])){
+	$_SESSION["username"] = $_POST["username"];
+	$username = $_POST["username"];
+}
+
+require_once 'serversetup.php';
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
 	<title>Tasty Recipes</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="../style.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script
+		src="https://code.jquery.com/jquery-3.2.1.js"
+		integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+		crossorigin="anonymous">
+	</script>
+	<script src="js/savecomment.js"></script>
 </head>
 
 <body>
 	<header>
-		<p><a href="../index.html" id="logo">Tasty Recipes</a></p>
+		<p><a href="index.php" id="logo">Tasty Recipes</a></p>
 		<nav id="menu">
 			<ul>
-				<li><a href="login.html" class="nav-link">Log in</a></li>
-				<li><a href="calendar.html" class="nav-link">Calendar</a></li>
-				<li id="active"><a href="pancakes.html" class="nav-link">Pancakes</a></li>
-				<li><a href="meatballs.html" class="nav-link">Meatballs</a></li>
-				<li><a href="../index.html" class="nav-link">Home</a></li>
+				<li>
+					<?php if(!isset($_SESSION["username"])){
+						echo ('<a href="login.php" class="nav-link">Log in</a>');
+					} else{
+						echo ('<a href="logout.php" class="nav-link">Log out</a>');
+					}
+					?>
+				</li>
+				<li><a href="calendar.php" class="nav-link">Calendar</a></li>
+				<li id="active"><a href="pancakes.php" class="nav-link">Pancakes</a></li>
+				<li><a href="meatballs.php" class="nav-link">Meatballs</a></li>
+				<li><a href="index.php" class="nav-link">Home</a></li>
 			</ul>
 		</nav>
 	</header>
 	<section class="content">
 		<h2>Pancakes</h2>
 		<figure>
-			<img src="../images/pancakes.jpg" alt="image of pancakes" class="recipe-img">
+			<img src="images/pancakes.jpg" alt="image of pancakes" class="recipe-img">
 			<figcaption>Recipe source: <a href="http://allrecipes.com/recipe/220142/fluffy-swedish-pancakes/" class="non-nav-link">allrecipes.com</a>. Image source: <a href="https://www.koket.se/pannkaka1" class="non-nav-link">koket.se</a>.</figcaption>
 		</figure>
 		<div id="meta">
@@ -56,27 +81,23 @@
 
 		<h3>Comments</h3>
 		<div id="comment-section">
-			<form id="write-comment" action="" method="post">
-				<div class="input-description">Comment on this recipe:</div><br/>
-				<textarea name="comment" cols="60"></textarea><br/>
-				<input type="submit" value="Send comment">
-			</form>
-			<div class="comment">
-				<div class="username">User 1</div>
-				<div class="comment-time"> <time datetime="2017-11-05 16:43">2017-11-05 16:43</time></div>
-				<div class="user-comment">Culpa short loin in, ground round kevin aliqua hamburger cillum.</div>
-			</div>
-			<div class="comment">
-				<div class="username">User 2</div>
-				<div class="comment-time"> <time datetime="2017-11-05 16:50">2017-11-05 16:50</time></div>
-				<div class="user-comment">Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.
-					Culpa short loin in, ground round kevin aliqua hamburger cillum.</div>
-			</div>
+			<?php
+				if(isset($_SESSION["username"])){
+					echo '<form id="write-comment" action="" method="post">
+						<div class="input-description">Comment on this recipe:</div><br/>
+						<textarea id="comment-box" name="comment" cols="60"></textarea><br/>
+						<input type="hidden" name="user" value="' . $_SESSION["username"] . '">
+						<input id="recipe" type="hidden" name="recipe" value="pancakes">
+						<input id="submit-button" type="submit" value="Send comment">
+					</form>';
+				}
+				
+			?>
+			
+			<script> readComments("pancakes");</script>
+			
+			<div id="comments"></div>
+			
 		</div>
 	</section>
 

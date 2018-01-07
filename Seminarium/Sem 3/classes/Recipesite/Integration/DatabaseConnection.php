@@ -16,8 +16,6 @@ class DatabaseConnection{
 		$username = $_POST["username"];
 		$password = $_POST["password"];
 		$hash = password_hash($password, PASSWORD_DEFAULT);
-
-		//$sql = "select username, password from users where username='". $username ."'and password='" . $hash . "'";
 		
 		// get stored passwords that belongs to the username
 		$sql = "select password from users where username='". $username ."'";
