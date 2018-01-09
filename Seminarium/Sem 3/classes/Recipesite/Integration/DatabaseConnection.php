@@ -13,7 +13,7 @@ class DatabaseConnection{
 	
 	public function login(){
 		
-		$username = $_POST["username"];
+		$username = htmlspecialchars($_POST["username"]);
 		$password = $_POST["password"];
 		$hash = password_hash($password, PASSWORD_DEFAULT);
 		
@@ -28,7 +28,7 @@ class DatabaseConnection{
 			return false;
 		} else{
 			while($dbpassword = $result->fetch_assoc()) {
-				if(password_verify($password, $hash)){
+				if(password_verify($dbpassword["password"], $hash)){
 					$_SESSION["username"] = $_POST["username"];
 					return true;
 				} else {
